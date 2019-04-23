@@ -42,6 +42,16 @@ class Rect extends Shape
         return $this->getWidth() * $this->getHeight();
     }
 
+    public function __toString()
+    {
+        return sprintf(
+            '%s, width: %f, height:%f',
+            parent::__toString(),
+            $this->getWidth(),
+            $this->getHeight()
+        );
+    }
+
 
 }
 

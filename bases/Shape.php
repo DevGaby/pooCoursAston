@@ -9,8 +9,8 @@ abstract class Shape
     // S'apelle avec _ 2x  C'est le constructeur
     public function __construct(int $x = 0, int $y = 0)
     {
-        $this->setX()
-            ->setX();
+        $this->setX($x)
+            ->setY($y);
     }
 
     /** // Raccourci alt -insert
@@ -40,6 +40,16 @@ abstract class Shape
         return $this;
     }
 
-   abstract public function getAir():float;
+    public function __toString()
+    {
+       return printf(
+           'x:%d, y:%d, air: %.2f',
+           $this->getX(),
+           $this->getY(),
+           $this->getAir()
+       );
+    }
+
+    abstract public function getAir():float;
 
 }
