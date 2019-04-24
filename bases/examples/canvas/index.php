@@ -43,7 +43,7 @@ echo '  ';
 echo $rect2->getX(), ' x ', $rect2 ->getY();
 
 $rect = new rect(250, 50);
-$circle= new Circle(100, 200);
+$circle = new Circle(100, 200);
 $canvas = new Canvas();
 
 $canvas->addShape($rect)
