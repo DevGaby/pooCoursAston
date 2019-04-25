@@ -1,6 +1,6 @@
 <?php
 
-class France24
+class France24 implements Iterator
 {
     private $data = [];
 
@@ -24,13 +24,33 @@ class France24
         }
     }
 
-    /**
-     * @return array
-     */
-    public function getData(): array
+
+    public function current()
     {
-        return $this->data;
+        // TODO: Implement current() method.
+        return current($this->data);
     }
+
+    public function next()
+    {
+        return next($this->data);
+    }
+
+    public function key()
+    {
+        return key($this->data);
+    }
+
+    public function valid()
+    {
+        return $this->key() !== null;
+    }
+
+    public function rewind()
+    {
+        reset ($this->data);
+    }
+
 }
 
 

@@ -1,9 +1,12 @@
 <?php
 
+ini_set("display_errors", true);
 require '../Article.php';
+require 'AstonNews.php';
 require 'France24.php';
+require 'Manager.php';
 
-$f24 = new France24('../france24.xml');
-
-echo '<pre>';
-print_r($f24->getData());
+$manager = new Manager();
+$manager->addNews(new France24('../france24.xml'));
+$manager->addNews(new AstonNews('../news.json'));
+$manager->show();
