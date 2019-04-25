@@ -17,6 +17,11 @@ class Connection
         $this->pdo = new PDO($dsn, $username, $password,$opts);
     }
 
+    private function __clone()
+    {
+        throw new Exception('Clone is prohibed');
+    }
+
     public static function getInstance(
         string $dsn ='', string $username='', string $password='', $opts=[]): Connection
     {

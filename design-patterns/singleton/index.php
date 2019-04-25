@@ -14,3 +14,15 @@ try{
 }
 
 $pdo = Connection::getInstance()->getPDO();
+
+// On peut cloner une instance pour en avoir une nouvelle
+// Pour eviter cela il faut creer un fct __clone qui empeche de cloner
+$db2 = clone $db;
+
+
+// Serialization : Permet de stocker un objet dans un fichier cache en le serialisant,
+//puis en le dé-sérialisant on retrouve objet
+
+$obj = new stdClass();
+$obj-> name = 'toto';
+echo serialize($pdo);

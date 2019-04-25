@@ -1,0 +1,19 @@
+[
+  {
+    "id" :  1,
+    "title":"Title 1",
+    "date" : "2019-04-25 14:25:40",
+    "content" : "Content 1",
+    "url" : "http://localhost:8080",
+    "author" : "Gérald MANVUSA"
+  },
+
+  {
+    "id" :  2,
+    "title":"Title 2",
+    "date" : "2019-04-25 14:26:40",
+    "content" : "Content 2",
+    "url" : "http://localhost:8080",
+    "author" : "Paul ERRACHE"
+  }
+]
