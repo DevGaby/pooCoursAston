@@ -6,18 +6,49 @@
 
 require  './vendor/autoload.php';
 
-$request = new Aston\Http\Request('pooCours/pooCoursAston/mvc/index.php?');
+// !!! TJ commenccer l'url avec /
+$request = new Aston\Http\Request('/pooCours/pooCoursAston/mvc/index.php?');
 
 
 //TEST REQUEST
 //var_dump($request->isMethod('GET'));
 //echo '<br>';
-//echo $request->getUri();
+echo $request->getUri();
 
-//TEST RESPONSE
-$res = new \Aston\Http\Response();
-$res->setBody('<h1> Response writer </h1>');
-$res->setStatusCode(404);
+////TEST RESPONSE
+$res = new \Aston\Http\Response('toto');
+//$res->setBody('<h1> Response writer </h1>');
+//$res->setStatusCode(404);
+//
+//$res->redirect('https://www.heygab.fr/');
+//$res->write();
+echo '<br>';
 
-$res->redirect('https://www.heygab.fr/');
+
+////TEST ROUTER
+$router = new \Aston\Http\Router();
+$router-> setRequest($request);
+
+// les () permet de capturer la valeur # sont des démiliteurs
+//$router->addRoute(
+//    new \Aston\Http\Route(
+//        'GET',
+//        '/blog/articles/([0-9]{4})/([a-z0-9]+)',
+//        function (){
+//        $res = new \Aston\Http\Response('Hello');
+//        return $res;
+//    }, ['year', 'title'])
+//);
+
+$router->get(
+    '/blog/articles/([0-9]{4})/([a-z0-9]+)',
+        function (){
+        return new Aston\Http\Response('Bye');
+        }, ['year', 'title']);
+
+$route = $router->match();
+$action = $route->getAction();
+$res = $action();
+
 $res->write();
+print_r($request->getParams());

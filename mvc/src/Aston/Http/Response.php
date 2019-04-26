@@ -19,6 +19,12 @@ class Response
      */
     private $body;
 
+    public function  __construct($body, $statusCode = 200)
+    {
+        $this->setBody($body);
+        $this->setStatusCode($statusCode);
+    }
+
     /**
      * @return int
      */

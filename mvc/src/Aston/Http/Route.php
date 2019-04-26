@@ -18,17 +18,22 @@ class Route
      * @var array
      */
     private $params;
+    /**
+     * @var string
+     */
+    private $method;
 
     /**
      * Route constructor.
      * @param string $path
      * @param callable $action
      */
-    public function __construct(string $path, callable $action, array $params = [])
+    public function __construct(string $method, string $path, callable $action, array $params = [])
     {
-        $this->setAction($path);
+        $this->setPath($path);
         $this->setAction($action);
         $this->setParams($params);
+        $this->setMethod($method);
     }
 
 
@@ -86,6 +91,23 @@ class Route
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getMethod(): string
+    {
+        return $this->method;
+    }
+
+    /**
+     * @param string $method
+     * @return Route
+     */
+    public function setMethod(string $method): Route
+    {
+        $this->method = $method;
+        return $this;
+    }
 
 
 }
