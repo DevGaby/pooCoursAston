@@ -44,7 +44,7 @@ while($news->valid())
     }
 
     $news->rewind();
-    
+
 foreach($news as $a)
     {
         echo $a->getTitre();

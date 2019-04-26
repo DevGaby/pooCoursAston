@@ -1,0 +1,19 @@
+{
+    "name": "aston/mvc",
+    "description": "MVC",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gaby",
+            "email": "sgabrielcalixte@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aston\\": "src/Aston"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
